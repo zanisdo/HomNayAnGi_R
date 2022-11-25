@@ -76,4 +76,14 @@ class AuthController extends Controller
 
         return Redirect('login');
     }
+
+    public function myAccount ()
+    {
+        return view('Auth.account.settings');
+    }
+
+    public function favoriteSettings ()
+    {
+        return view('Auth.account.favorites');
+    }
 }

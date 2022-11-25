@@ -30,9 +30,13 @@ Route::controller(AuthController::class)->group(function(){
 
     Route::get('logout', 'logout')->name('logout');
 
+    Route::get('myaccount', 'myAccount')->name('myaccount');
+    
+    Route::get('favoritesettings', 'favoriteSettings')->name('favoritesettings');
+
 });
 
-Route::controller(FoodController::class)->group(function(){
+Route::controller(FoodController::class)->middleware('auth')->group(function(){
 
     Route::get('food', 'index')->name('food');
 
