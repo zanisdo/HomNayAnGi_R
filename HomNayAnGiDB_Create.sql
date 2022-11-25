@@ -1,22 +1,19 @@
 
-USE master
---DROP Database HomNayAnGiDB
-CREATE DATABASE HomNayAnGiDB
-USE HomNayAnGiDB
+USE HomNayAnGi_Test
 
--- ************************************** [Customer_Account]
-CREATE TABLE [Customer_Account]
-(
- [account_id] int NOT NULL IDENTITY(1,1),
- [Username]   varchar(15) NOT NULL ,
- [Password]   varchar(64) NOT NULL ,
- [Mobile]     varchar(10) NOT NULL ,
- [Email]      varchar(30) NOT NULL ,
+-- ************************************** [users]
+--CREATE TABLE [users]
+--(
+-- [account_id] int NOT NULL IDENTITY(1,1),
+-- [Username]   varchar(15) NOT NULL ,
+-- [Password]   varchar(64) NOT NULL ,
+-- [Mobile]     varchar(10) NOT NULL ,
+-- [Email]      varchar(30) NOT NULL ,
 
 
- CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED ([account_id] ASC)
-);
-GO
+-- CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED ([account_id] ASC)
+--);
+--GO
 
 -- ************************************** [Food_Category]
 CREATE TABLE [Food_Category]
@@ -64,7 +61,7 @@ CREATE TABLE [Customer_Infor]
 
 
  CONSTRAINT [PK_Infor] PRIMARY KEY CLUSTERED ([account_id] ASC),
- CONSTRAINT [FK_Acc_Inf] FOREIGN KEY ([account_id])  REFERENCES [Customer_Account]([account_id])
+ CONSTRAINT [FK_Acc_Inf] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id])
 );
 GO
 
@@ -85,7 +82,7 @@ CREATE TABLE [Customer_Hate]
 
 
  CONSTRAINT [PK_Hate] PRIMARY KEY CLUSTERED ([hate_id] ASC),
- CONSTRAINT [FK_Acc_Hate] FOREIGN KEY ([account_id])  REFERENCES [Customer_Account]([account_id]),
+ CONSTRAINT [FK_Acc_Hate] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id]),
  CONSTRAINT [FK_Food_Hate] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id])
 );
 GO
@@ -115,7 +112,7 @@ CREATE TABLE [Customer_Food_Recommend]
 
 
  CONSTRAINT [PK_Food_Rec] PRIMARY KEY CLUSTERED ([recommend_id] ASC),
- CONSTRAINT [FK_Acc_Rec] FOREIGN KEY ([account_id])  REFERENCES [Customer_Account]([account_id]),
+ CONSTRAINT [FK_Acc_Rec] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id]),
  CONSTRAINT [FK_Food_Rec] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id])
 );
 GO
@@ -144,7 +141,7 @@ CREATE TABLE [Customer_Fav_Food]
 
 
  CONSTRAINT [PK_Fav_Food] PRIMARY KEY CLUSTERED ([fav_id] ASC),
- CONSTRAINT [FK_Acc_Fav] FOREIGN KEY ([account_id])  REFERENCES [Customer_Account]([account_id]),
+ CONSTRAINT [FK_Acc_Fav] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id]),
  CONSTRAINT [FK_Food_Fav] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id])
 );
 GO
@@ -175,7 +172,7 @@ CREATE TABLE [Customer_Eated]
 
  CONSTRAINT [PK_Eated] PRIMARY KEY CLUSTERED ([eated_id] ASC),
  CONSTRAINT [FK_Food_Eated] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id]),
- CONSTRAINT [FK_Acc_Eated] FOREIGN KEY ([account_id])  REFERENCES [Customer_Account]([account_id])
+ CONSTRAINT [FK_Acc_Eated] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id])
 );
 GO
 
@@ -208,7 +205,7 @@ CREATE TABLE [Customer_Address]
 
 
  CONSTRAINT [PK_Address] PRIMARY KEY CLUSTERED ([address_id] ASC),
- CONSTRAINT [FK_Acc_Add] FOREIGN KEY ([account_id])  REFERENCES [Customer_Account]([account_id])
+ CONSTRAINT [FK_Acc_Add] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id])
 );
 GO
 
