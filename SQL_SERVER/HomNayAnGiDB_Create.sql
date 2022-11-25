@@ -4,7 +4,7 @@ USE HomNayAnGi_Test
 -- ************************************** [users]
 --CREATE TABLE [users]
 --(
--- [account_id] int NOT NULL IDENTITY(1,1),
+-- [account_id] bigint NOT NULL IDENTITY(1,1),
 -- [Username]   varchar(15) NOT NULL ,
 -- [Password]   varchar(64) NOT NULL ,
 -- [Mobile]     varchar(10) NOT NULL ,
@@ -53,7 +53,7 @@ GO
 -- ************************************** [Customer_Infor]
 CREATE TABLE [Customer_Infor]
 (
- [account_id]  int NOT NULL ,
+ [account_id]  bigint NOT NULL ,
  [First_Name]  nvarchar(20) NOT NULL ,
  [Middle_Name] nvarchar(20) NOT NULL ,
  [Last_Name]   nvarchar(20) NOT NULL ,
@@ -61,7 +61,7 @@ CREATE TABLE [Customer_Infor]
 
 
  CONSTRAINT [PK_Infor] PRIMARY KEY CLUSTERED ([account_id] ASC),
- CONSTRAINT [FK_Acc_Inf] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id])
+ CONSTRAINT [FK_Acc_Inf] FOREIGN KEY ([account_id])  REFERENCES [users]([id])
 );
 GO
 
@@ -77,12 +77,12 @@ GO
 CREATE TABLE [Customer_Hate]
 (
  [hate_id]    int NOT NULL  IDENTITY(1,1),
- [account_id] int NOT NULL ,
+ [account_id] bigint NOT NULL ,
  [food_id]    int NOT NULL ,
 
 
  CONSTRAINT [PK_Hate] PRIMARY KEY CLUSTERED ([hate_id] ASC),
- CONSTRAINT [FK_Acc_Hate] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id]),
+ CONSTRAINT [FK_Acc_Hate] FOREIGN KEY ([account_id])  REFERENCES [users]([id]),
  CONSTRAINT [FK_Food_Hate] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id])
 );
 GO
@@ -106,13 +106,13 @@ GO
 CREATE TABLE [Customer_Food_Recommend]
 (
  [recommend_id] int NOT NULL  IDENTITY(1,1),
- [account_id]   int NOT NULL ,
+ [account_id]   bigint NOT NULL ,
  [food_id]      int NOT NULL ,
  [TimeRec]      datetime NOT NULL ,
 
 
  CONSTRAINT [PK_Food_Rec] PRIMARY KEY CLUSTERED ([recommend_id] ASC),
- CONSTRAINT [FK_Acc_Rec] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id]),
+ CONSTRAINT [FK_Acc_Rec] FOREIGN KEY ([account_id])  REFERENCES [users]([id]),
  CONSTRAINT [FK_Food_Rec] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id])
 );
 GO
@@ -136,12 +136,12 @@ GO
 CREATE TABLE [Customer_Fav_Food]
 (
  [fav_id]     int NOT NULL  IDENTITY(1,1),
- [account_id] int NOT NULL ,
+ [account_id] bigint NOT NULL ,
  [food_id]    int NOT NULL ,
 
 
  CONSTRAINT [PK_Fav_Food] PRIMARY KEY CLUSTERED ([fav_id] ASC),
- CONSTRAINT [FK_Acc_Fav] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id]),
+ CONSTRAINT [FK_Acc_Fav] FOREIGN KEY ([account_id])  REFERENCES [users]([id]),
  CONSTRAINT [FK_Food_Fav] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id])
 );
 GO
@@ -165,14 +165,14 @@ GO
 CREATE TABLE [Customer_Eated]
 (
  [eated_id]   int NOT NULL  IDENTITY(1,1),
- [account_id] int NOT NULL ,
+ [account_id] bigint NOT NULL ,
  [food_id]    int NOT NULL ,
  [TimeEat]    datetime NOT NULL ,
 
 
  CONSTRAINT [PK_Eated] PRIMARY KEY CLUSTERED ([eated_id] ASC),
  CONSTRAINT [FK_Food_Eated] FOREIGN KEY ([food_id])  REFERENCES [Food]([food_id]),
- CONSTRAINT [FK_Acc_Eated] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id])
+ CONSTRAINT [FK_Acc_Eated] FOREIGN KEY ([account_id])  REFERENCES [users]([id])
 );
 GO
 
@@ -196,16 +196,16 @@ GO
 CREATE TABLE [Customer_Address]
 (
  [address_id]     int NOT NULL ,
- [account_id]     int NOT NULL ,
- [Province]       nvarchar(30) NOT NULL ,
- [City]           nvarchar(30) NOT NULL ,
- [Ward]           nvarchar(30) NOT NULL ,
- [District]       nvarchar(30) NOT NULL ,
- [Address_Line_1] nvarchar(30) NOT NULL ,
+ [account_id]     bigint NOT NULL ,
+ [Province]       nvarchar(30),
+ [City]           nvarchar(30),
+ [Ward]           nvarchar(30),
+ [District]       nvarchar(30),
+ [Address_Line_1] nvarchar(30),
 
 
  CONSTRAINT [PK_Address] PRIMARY KEY CLUSTERED ([address_id] ASC),
- CONSTRAINT [FK_Acc_Add] FOREIGN KEY ([account_id])  REFERENCES [users]([account_id])
+ CONSTRAINT [FK_Acc_Add] FOREIGN KEY ([account_id])  REFERENCES [users]([id])
 );
 GO
 
