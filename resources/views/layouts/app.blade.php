@@ -18,8 +18,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* background: rgb(241, 105, 105);
-            background: linear-gradient(255deg, rgba(241, 105, 105, 1) 0%, rgba(252, 229, 23, 1) 100%); */
             background: rgb(241, 105, 105);
             background: linear-gradient(225deg, rgba(241, 105, 105, 1) 0%, rgba(252, 229, 23, 0.5021358885351015) 100%);
         }
@@ -43,6 +41,42 @@
 
         .gap-3-rem {
             margin-top: 3rem;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .filter-area {
+            position: sticky;
+            top: 2rem;
+            background-color: #fff;
+            height: 80%;
+            max-width: 250px;
+            padding: 25px;
+            margin-right: 1rem;
+        }
+
+        .checkbox-area + .checkbox-area {
+            margin-top: 10px;
+        }
+
+        .display-content {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 1rem;
+        }
+
+        .display-content-4 {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 1rem;
+        }
+
+        .button-confirm {
+            margin-inline: auto;
         }
     </style>
 </head>
