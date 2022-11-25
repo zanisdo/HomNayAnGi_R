@@ -15,7 +15,7 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.index');
 })->name('home');
 
 
@@ -32,3 +32,15 @@ Route::controller(AuthController::class)->group(function(){
     Route::get('logout', 'logout')->name('logout');
 
 });
+
+Route::get('/food', function () {
+    return view('food.index');
+})->name('food');
+
+Route::get('/filter', function () {
+    return view('food.filter');
+})->name('filter');
+
+Route::get('/favorites', function () {
+    return view('food.favorites');
+})->name('favorites');
