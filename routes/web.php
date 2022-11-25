@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::get('logout', 'logout')->name('logout');
 
     Route::get('myaccount', 'myAccount')->name('myaccount');
-    
+
     Route::get('favoritesettings', 'favoriteSettings')->name('favoritesettings');
 
 });
@@ -43,5 +44,11 @@ Route::controller(FoodController::class)->middleware('auth')->group(function(){
     Route::get('filter', 'filter')->name('filter');
 
     Route::get('favorite', 'favorite')->name('favorite');
+
+});
+
+Route::controller(AccountController::class)->group(function(){
+
+    Route::get('settings', 'settings')->name('settings');
 
 });

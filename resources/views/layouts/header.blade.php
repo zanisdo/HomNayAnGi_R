@@ -31,7 +31,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown"
                         aria-expanded="false">{{ Auth::User()->name }}</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown07">
-                        <li><a class="dropdown-item" href="#">My Account</a></li>
+                        <li><a class="dropdown-item" href="{{ route('settings') }}">My Account</a></li>
                         <li><a class="dropdown-item" href="{{ route('food') }}">All food</a></li>
                         <li><a class="dropdown-item" href="{{ route('favorite') }}">My Favorites</a></li>
                         <li><a class="dropdown-item" href="{{ route('filter') }}">Filter Food</a></li>
