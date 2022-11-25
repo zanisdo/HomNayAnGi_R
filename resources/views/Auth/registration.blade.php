@@ -19,7 +19,7 @@
                         @if($errors->has('name'))
                             <span class="text-danger">{{ $errors->first('name') }}</span><br>
                         @endif
-                <label class="form-label" >Name</label>
+                <label class="form-label" >User Name</label>
               </div>
               <div class="form-outline mb-4">
                 <input type="text" name="mobile" class="form-control form-control-lg" />
