@@ -46,7 +46,7 @@
                     </form>
                 @else
                     <h3 class="mb-5">You are already login</h3>
-                    <div class="form-outline mb-4"><a href="/" class="btn btn-primary">Go to Main Page</a></div>
+                    <div class="form-outline mb-4"><a href="{{ route('food') }}" class="btn btn-primary">Go to Food Page</a></div>
                 @endguest
 
 
